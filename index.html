@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TehCargo — Expédition Côte Est USA → Cameroun | Fret aérien & maritime</title>
+<meta name="description" content="TehCargo expédie vos fûts, grands cartons U-Haul, colis et véhicules depuis tous les États de la côte Est des États-Unis vers le Cameroun. Pick up à domicile, dédouanement inclus, suivi en ligne." />
+<meta property="og:title" content="TehCargo — Expédition Côte Est USA → Cameroun" />
+<meta property="og:description" content="Fret aérien et maritime vers le Cameroun depuis toute la côte Est des États-Unis. Dédouanement inclus." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://teh-cargo.com/" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#14713a; --green-dark:#0d5028; --green-deep:#0a3d1f; --green-soft:#e9f4ec;
+    --red:#d81f26; --red-dark:#ad161c; --red-soft:#fdecec;
+    --gold:#f7c331; --gold-soft:#fef6e0;
+    --ink:#15221a; --paper:#ffffff; --shell:#f4f7f4;
+    --line:#dde5de; --muted:#5d6f62;
+    --ok:#14713a; --ok-soft:#e9f4ec; --warn:#9a7407; --warn-soft:#fdf6e3;
+    --shadow:0 1px 2px rgba(10,61,31,.06), 0 12px 32px -18px rgba(10,61,31,.4);
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Barlow Condensed",Impact,sans-serif; font-weight:700;
+           letter-spacing:.005em; text-wrap:balance; margin:0; line-height:1.06}
+  h1{font-size:clamp(31px,6.1vw,60px); text-transform:uppercase}
+  h2{font-size:clamp(28px,4.4vw,42px); text-transform:uppercase}
+  h3{font-size:20px}
+  p{margin:0}
+  a{color:var(--green)}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 22px}
+  section{padding:clamp(56px,8vw,92px) 0}
+  .eyebrow{font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--red)}
+  .lede{color:var(--muted); font-size:17.5px; max-width:62ch}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* ── Header ─────────────────────────────────────────── */
+  header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.94);
+         backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+  .bar{display:flex; align-items:center; gap:18px; height:100px}
+  .logo{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:27px;
+        text-transform:uppercase; letter-spacing:.01em; color:var(--ink); text-decoration:none;
+        display:flex; align-items:center; gap:9px}
+  .logo b{color:var(--red)}
+  .logo svg{flex:none}
+  .logo-img{height:84px; width:auto; display:block}
+  .logo:has(.logo-img:not([style*="none"])) .logo-word{display:none}
+  @media (max-width:520px){ .logo-img{height:60px} .bar{height:80px; gap:10px} }
+  nav{margin-left:auto; display:flex; align-items:center; gap:24px}
+  nav a{color:var(--green-dark); text-decoration:none; font-size:14.5px; font-weight:500}
+  nav a:hover{color:var(--red)}
+  .langs{display:flex; border:1px solid var(--line); border-radius:8px; overflow:hidden}
+  .langs button{border:0; background:var(--paper); color:var(--muted); font:inherit;
+                font-size:12.5px; font-weight:700; padding:5px 10px; cursor:pointer}
+  .langs button[aria-pressed="true"]{background:var(--green); color:#fff}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px;
+       border-radius:10px; padding:12px 20px; font-weight:600; font-size:15px;
+       text-decoration:none; border:1px solid transparent; cursor:pointer; font-family:inherit}
+  .btn-wa{background:var(--red); color:#fff}
+  .btn-wa:hover{background:var(--red-dark)}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn-sm{padding:9px 15px; font-size:14px}
+  @media (max-width:900px){
+    nav{gap:12px}
+    .bar{flex-wrap:wrap; height:auto; padding:12px 0 0}
+    nav .navlink{display:none}
+    .mininav{display:flex}
+  }
+  /* Sur telephone les liens d'en-tete disparaissent : cette barre garde
+     Suivi, Calendrier et Tarifs a portee de pouce des le haut de page. */
+  .mininav{display:none; gap:8px; width:100%; overflow-x:auto; padding:10px 0 12px;
+           border-top:1px solid var(--line); margin-top:2px; -webkit-overflow-scrolling:touch}
+  .mininav a{flex:none; font-size:13.5px; font-weight:600; text-decoration:none;
+             color:var(--green-dark); border:1px solid var(--line); border-radius:999px;
+             padding:8px 15px; white-space:nowrap}
+  .mininav a.hi{background:var(--green); border-color:var(--green); color:#fff}
+
+  /* ── Hero + tracking ────────────────────────────────── */
+  .hero{
+        background:
+          linear-gradient(100deg,rgba(8,48,25,.95) 0%,rgba(8,48,25,.88) 34%,
+                                 rgba(10,61,31,.58) 66%,rgba(10,61,31,.42) 100%),
+          url("/assets/hero.jpg") center right/cover no-repeat,
+          linear-gradient(165deg,var(--green-deep) 0%,var(--green) 100%);
+        color:#fff;
+        padding:clamp(52px,8vw,86px) 0 clamp(64px,9vw,104px); position:relative; overflow:hidden}
+  .hero::after{content:""; position:absolute; inset:auto -10% -55% 55%; height:70%;
+               background:radial-gradient(closest-side,rgba(247,195,49,.30),transparent);
+               pointer-events:none}
+  @media (max-width:900px){
+    .hero{
+      background:
+        linear-gradient(180deg,rgba(8,48,25,.93) 0%,rgba(8,48,25,.89) 50%,rgba(10,61,31,.95) 100%),
+        url("/assets/hero-sm.jpg") center/cover no-repeat,
+        linear-gradient(165deg,var(--green-deep) 0%,var(--green) 100%);
+    }
+  }
+  .hero .wrap{position:relative; z-index:1}
+  .route{display:inline-flex; align-items:center; gap:12px; font-size:13px; font-weight:600;
+         letter-spacing:.1em; text-transform:uppercase; color:#ffe9a8;
+         border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 16px}
+  .hero h1{margin:20px 0 16px; color:#fff}
+  .hero p{color:#cfe6d6; font-size:18px; max-width:56ch}
+  .states{margin-top:18px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,.16)}
+  .states-lab{font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+              color:var(--gold); margin-bottom:11px}
+  .states-list{display:flex; flex-wrap:wrap; gap:7px}
+  .states-list span{font-size:13.5px; font-weight:500; color:#e6f2ea; line-height:1;
+                    border:1px solid rgba(255,255,255,.26); border-radius:999px; padding:7px 13px}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
+  .hero .btn-ghost{color:#fff; border-color:rgba(255,255,255,.32)}
+  .hero .btn-ghost:hover{border-color:#fff}
+
+  .track-card{background:var(--paper); color:var(--ink); border-radius:var(--r);
+              box-shadow:var(--shadow); padding:22px; margin-top:38px; max-width:640px}
+  .track-form{display:flex; gap:10px; flex-wrap:wrap}
+  .track-form input{flex:1 1 240px; min-width:0; height:48px; padding:0 14px; font:inherit;
+                    border:1px solid var(--line); border-radius:10px; background:var(--shell)}
+  .track-form input:focus{outline:2px solid var(--green); outline-offset:1px; background:#fff}
+  .track-form button{height:48px; background:var(--green); color:#fff; border:0; border-radius:10px;
+                     padding:0 22px; font:inherit; font-weight:600; cursor:pointer}
+  .track-form button:hover{background:var(--green-dark)}
+  .track-hint{color:var(--muted); font-size:13px; margin-top:10px}
+  #trackOut{margin-top:16px}
+  .status-pill{display:inline-block; padding:4px 12px; border-radius:999px;
+               font-size:12.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase}
+  .s-ok{background:var(--ok-soft); color:var(--ok)}
+  .s-go{background:var(--green-soft); color:var(--green)}
+  .s-wait{background:var(--warn-soft); color:var(--warn)}
+  .s-err{background:var(--red-soft); color:var(--red-dark)}
+  .track-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px;
+              margin:16px 0; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .track-grid div span{display:block; font-size:11.5px; text-transform:uppercase;
+                       letter-spacing:.08em; color:var(--muted); margin-bottom:3px}
+  .track-grid div strong{font-size:15px}
+  .events{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0}
+  .events li{display:grid; grid-template-columns:16px 1fr; gap:14px; padding-bottom:16px; position:relative}
+  .events li:not(:last-child)::before{content:""; position:absolute; left:7px; top:16px; bottom:0;
+                                      width:1px; background:var(--line)}
+  .dot{width:11px; height:11px; border-radius:50%; background:var(--green); margin-top:5px; z-index:1}
+  .events li:first-child .dot{background:var(--red)}
+  .ev-t{font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em}
+
+  /* ── Services ───────────────────────────────────────── */
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:36px}
+  .card{border:1px solid var(--line); border-radius:var(--r); padding:26px; background:var(--paper);
+        display:flex; flex-direction:column; gap:12px}
+  .card .ico{width:44px; height:44px; border-radius:11px; background:var(--green-soft); color:var(--green);
+             display:grid; place-items:center}
+  .card .delay{margin-top:auto; padding-top:14px; border-top:1px dashed var(--line);
+               font-size:14px; color:var(--muted)}
+  .card .delay b{color:var(--ink)}
+
+  /* ── Pricing ────────────────────────────────────────── */
+  .pricing{background:var(--shell)}
+  .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--r);
+              background:var(--paper); margin-top:34px}
+  table{border-collapse:collapse; width:100%; min-width:560px}
+  th,td{text-align:left; padding:15px 20px; border-bottom:1px solid var(--line); font-size:15px}
+  thead th{background:var(--green); color:#fff; font-size:12px; letter-spacing:.1em;
+           text-transform:uppercase; font-weight:600}
+  tbody tr:last-child td{border-bottom:0}
+  td.price{font-weight:700; white-space:nowrap}
+  td.price small{white-space:normal}
+  td.price small{display:block; font-weight:500; color:var(--muted); font-size:12.5px}
+  .notes{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:20px}
+  .note{background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--red);
+        border-radius:0 10px 10px 0; padding:14px 18px; font-size:14.5px; color:var(--muted)}
+  .note b{color:var(--ink)}
+
+  /* ── Réservation de pick up ─────────────────────────── */
+  .bk-back{position:fixed; inset:0; background:rgba(7,30,17,.72); backdrop-filter:blur(3px);
+           z-index:100; display:none; overflow-y:auto; padding:20px}
+  .bk-back.open{display:block}
+  .bk{max-width:640px; margin:24px auto; background:var(--paper); border-radius:16px;
+      box-shadow:0 30px 70px -20px rgba(0,0,0,.55); overflow:hidden}
+  .bk-head{background:var(--green); color:#fff; padding:20px 24px; display:flex; align-items:center; gap:14px}
+  .bk-head h3{color:#fff; font-size:23px}
+  .bk-close{margin-left:auto; background:rgba(255,255,255,.15); border:0; color:#fff; width:34px;
+            height:34px; border-radius:9px; font-size:19px; cursor:pointer; line-height:1}
+  .bk-close:hover{background:rgba(255,255,255,.3)}
+  .bk-body{padding:24px; display:flex; flex-direction:column; gap:22px}
+  .bk-step > label, .bk-lab{display:block; font-size:12px; font-weight:700; letter-spacing:.13em;
+                            text-transform:uppercase; color:var(--red); margin-bottom:10px}
+  .bk-items{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px}
+  .bk-item{border:2px solid var(--line); border-radius:13px; padding:12px; text-align:center;
+           display:flex; flex-direction:column; gap:8px; transition:border-color .15s, background .15s}
+  .bk-item.on{border-color:var(--green); background:var(--green-soft)}
+  .bk-item .ph{height:92px; display:grid; place-items:center}
+  .bk-item .ph img{max-height:92px; max-width:100%; object-fit:contain}
+  .bk-item b{font-size:14.5px; line-height:1.25}
+  .bk-item small{color:var(--muted); font-size:12px; display:block}
+  .qty{display:flex; align-items:center; justify-content:center; gap:10px; margin-top:2px}
+  .qty button{width:30px; height:30px; border-radius:8px; border:1px solid var(--line);
+              background:var(--paper); font:inherit; font-size:17px; font-weight:700; cursor:pointer;
+              color:var(--green); line-height:1}
+  .qty button:hover{border-color:var(--green)}
+  .qty span{min-width:26px; font-weight:700; font-variant-numeric:tabular-nums}
+  .bk-f{display:flex; flex-direction:column; gap:6px}
+  .bk-f label{font-size:13.5px; font-weight:600}
+  .bk-f input, .bk-f textarea{font:inherit; padding:11px 13px; border:1px solid var(--line);
+                              border-radius:10px; background:var(--shell); color:var(--ink)}
+  .bk-f input:focus, .bk-f textarea:focus{outline:2px solid var(--green); outline-offset:1px; background:#fff}
+  .bk-row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  @media (max-width:560px){ .bk-row{grid-template-columns:1fr} }
+  .bk-loc{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+  .bk-loc button{flex:1 1 180px; padding:11px 14px; border-radius:10px; border:1px solid var(--line);
+                 background:var(--paper); font:inherit; font-weight:600; cursor:pointer;
+                 display:flex; align-items:center; justify-content:center; gap:8px}
+  .bk-loc button.on{border-color:var(--green); background:var(--green-soft); color:var(--green)}
+  .bk-geo{font-size:13.5px; padding:10px 13px; border-radius:10px; background:var(--green-soft);
+          color:var(--green); display:none}
+  .bk-geo.show{display:block}
+  .bk-photos{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+  .bk-thumb{width:66px; height:66px; border-radius:10px; overflow:hidden; position:relative;
+            border:1px solid var(--line)}
+  .bk-thumb img{width:100%; height:100%; object-fit:cover}
+  .bk-thumb button{position:absolute; top:2px; right:2px; width:19px; height:19px; border:0;
+                   border-radius:50%; background:rgba(0,0,0,.65); color:#fff; font-size:12px;
+                   cursor:pointer; line-height:1; padding:0}
+  .bk-add{width:66px; height:66px; border-radius:10px; border:2px dashed var(--line);
+          background:var(--paper); cursor:pointer; color:var(--muted); font-size:24px; line-height:1}
+  .bk-add:hover{border-color:var(--green); color:var(--green)}
+  .bk-foot{padding:18px 24px 24px; border-top:1px solid var(--line); display:flex;
+           flex-direction:column; gap:10px}
+  .bk-send{width:100%; padding:15px; border:0; border-radius:11px; background:var(--red); color:#fff;
+           font:inherit; font-size:16px; font-weight:700; cursor:pointer;
+           display:flex; align-items:center; justify-content:center; gap:10px}
+  .bk-send:hover{background:var(--red-dark)}
+  .bk-send:disabled{opacity:.5; cursor:default}
+  .bk-msg{font-size:14px; padding:11px 14px; border-radius:10px; display:none}
+  .bk-msg.err{display:block; background:var(--red-soft); color:var(--red-dark)}
+  .bk-msg.ok{display:block; background:var(--green-soft); color:var(--green)}
+  .bk-note{font-size:12.5px; color:var(--muted); text-align:center}
+
+  /* ── Schedule ───────────────────────────────────────── */
+  .sched{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-top:36px}
+  .sched-col{border:1px solid var(--line); border-radius:var(--r); background:var(--paper); overflow:hidden}
+  .sched-head{padding:18px 22px; color:#fff; display:flex; align-items:center; gap:12px}
+  .sched-head.air{background:var(--red)}
+  .sched-head.sea{background:var(--green)}
+  .sched-head h3{color:#fff; font-size:21px}
+  .sched-head span{margin-left:auto; font-size:12.5px; font-weight:600; letter-spacing:.06em;
+                   text-transform:uppercase; opacity:.9}
+  .sched-list{list-style:none; margin:0; padding:0}
+  .sched-list li{display:flex; align-items:center; gap:16px; padding:15px 22px; border-bottom:1px solid var(--line)}
+  .sched-list li:last-child{border-bottom:0}
+  .sched-date{flex:none; width:62px; text-align:center; border-radius:9px; padding:7px 0;
+              background:var(--shell); border:1px solid var(--line)}
+  .sched-date b{display:block; font-family:"Barlow Condensed",sans-serif; font-size:25px; line-height:1}
+  .sched-date i{display:block; font-style:normal; font-size:11px; text-transform:uppercase;
+                letter-spacing:.08em; color:var(--muted)}
+  .sched-what strong{display:block; font-size:15.5px}
+  .sched-what span{font-size:13.5px; color:var(--muted)}
+  .sched-next{margin-left:auto; flex:none; font-size:11px; font-weight:700; letter-spacing:.07em;
+              text-transform:uppercase; color:#fff; background:var(--gold); color:#4a3a05;
+              padding:4px 10px; border-radius:999px}
+  .sched-foot{padding:15px 22px; background:var(--shell); font-size:14px; color:var(--muted)}
+
+  /* ── Steps ──────────────────────────────────────────── */
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:22px; margin-top:36px; counter-reset:s}
+  .step{counter-increment:s; position:relative; padding-top:52px}
+  .step::before{content:counter(s,decimal-leading-zero); position:absolute; top:0; left:0;
+                font-family:"Barlow Condensed",sans-serif; font-size:40px; font-weight:700;
+                color:var(--red); line-height:1}
+  .step h3{margin-bottom:7px}
+  .step p{color:var(--muted); font-size:15px}
+
+  /* ── Contact ────────────────────────────────────────── */
+  .contact{background:var(--green-deep); color:#fff}
+  .contact h2{color:#fff}
+  .contact .lede{color:#c2ddca}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-top:38px; align-items:start}
+  @media (max-width:840px){ .contact-grid{grid-template-columns:1fr} }
+  .field{display:flex; flex-direction:column; gap:6px; margin-bottom:14px}
+  .field label{font-size:13px; font-weight:600; color:#c2ddca}
+  .field input,.field textarea,.field select{
+    font:inherit; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.07); color:#fff}
+  .field input::placeholder,.field textarea::placeholder{color:#8fb79c}
+  .field input:focus,.field textarea:focus,.field select:focus{
+    outline:2px solid var(--red); outline-offset:1px; background:rgba(255,255,255,.12)}
+  .field select option{background:var(--ink); color:#fff}
+  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+  .form-msg{margin-top:12px; font-size:14.5px; padding:11px 14px; border-radius:10px; display:none}
+  .form-msg.ok{display:block; background:rgba(30,122,76,.2); color:#8ee0b2}
+  .form-msg.err{display:block; background:rgba(232,89,12,.2); color:#ffb489}
+  .ways{display:flex; flex-direction:column; gap:18px}
+  .way{display:flex; gap:15px; align-items:flex-start; padding-bottom:18px; border-bottom:1px solid rgba(255,255,255,.12)}
+  .way:last-child{border-bottom:0}
+  .way .ico{width:40px; height:40px; flex:none; border-radius:10px; background:rgba(255,255,255,.1);
+            display:grid; place-items:center; color:var(--red)}
+  .way span{display:block; font-size:12px; text-transform:uppercase; letter-spacing:.09em; color:#9dc4ac}
+  .way strong{font-size:16.5px}
+  .way a{color:#fff; text-decoration:none}
+  .way a:hover{color:var(--red)}
+
+  footer{background:#07301a; color:#8fb79c; padding:34px 0; font-size:14px}
+  .foot{display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between}
+  footer a{color:#c2ddca}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">
+      <img src="/assets/logo.png" alt="TehCargo" class="logo-img"
+           onerror="this.style.display='none';document.getElementById('logoFallback').hidden=false">
+      <span id="logoFallback" hidden>      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="15" fill="#fff" stroke="#14713a" stroke-width="2"/>
+          <path d="M31 16a15 15 0 0 1-4.4 10.6l-2.1-2.1A12 12 0 0 0 28 16h3Z" fill="#f7c331"/>
+          <path d="M16 1a15 15 0 0 1 10.6 4.4l-2.1 2.1A12 12 0 0 0 16 4V1Z" fill="#d81f26"/>
+          <circle cx="13" cy="14" r="5.4" fill="#14713a"/>
+          <path d="M9 22c4.5-3.6 10-6.4 15.5-7.6l-1.1 3.1c-4.9 1.2-9.7 3.6-13.6 6.6L9 22Z" fill="#d81f26"/>
+          <path d="M18 12.6c2.6-1.6 5.4-2.8 8.2-3.6l-1 2.9c-2.4.8-4.7 1.8-6.9 3l-.3-2.3Z" fill="#f7c331"/>
+        </svg></span>
+      <span class="logo-word">Teh<b>Cargo</b></span>
+    </a>
+    <nav>
+      <a class="navlink" href="#services" data-fr="Services" data-en="Services">Services</a>
+      <a class="navlink" href="#tarifs" data-fr="Tarifs" data-en="Pricing">Tarifs</a>
+      <a class="navlink" href="#calendrier" data-fr="Calendrier" data-en="Schedule">Calendrier</a>
+      <a class="navlink" href="#suivi" data-fr="Suivi" data-en="Tracking">Suivi</a>
+      <a class="navlink" href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+      <div class="langs" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-wa btn-sm" id="waTop" href="#" target="_blank" rel="noopener"
+         data-fr="WhatsApp" data-en="WhatsApp">WhatsApp</a>
+    </nav>
+    <nav class="mininav" aria-label="Raccourcis">
+      <a class="hi" href="#suivi" data-fr="Suivre un colis" data-en="Track a shipment">Suivre un colis</a>
+      <a href="#calendrier" data-fr="Calendrier" data-en="Schedule">Calendrier</a>
+      <a href="#tarifs" data-fr="Tarifs" data-en="Pricing">Tarifs</a>
+      <a href="#services" data-fr="Services" data-en="Services">Services</a>
+      <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+
+    <div class="states">
+      <p class="states-lab">
+        <span data-fr="États desservis" data-en="States we serve">États desservis</span>
+      </p>
+      <div class="states-list"><span>Maryland</span><span>Virginia</span><span>Washington DC</span><span>West Virginia</span><span>Pennsylvania</span><span>Delaware</span><span>New Jersey</span><span>New York</span><span>Connecticut</span><span>Massachusetts</span></div>
+    </div>
+
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#f7c331;margin:22px 0 0">
+      <span data-fr="Transporter vos biens. Bâtir la confiance."
+            data-en="Moving cargo. Building trust.">Transporter vos biens. Bâtir la confiance.</span></p>
+    <h1 style="margin-top:8px" data-fr="Vos colis partent de chez vous et arrivent à destination en toute sécurité."
+        data-en="Your parcels leave your home and arrive safely at destination.">Vos colis partent de chez vous et arrivent à destination en toute sécurité.</h1>
+    <p data-fr="Nous venons chercher vos colis à votre domicile et prenons tout en charge jusqu'à destination. Vous n'avez plus qu'à suivre votre envoi."
+       data-en="We collect your parcels at your door and take care of everything through to destination. All you have to do is follow your shipment.">Nous venons chercher vos colis à votre domicile et prenons tout en charge jusqu'à destination. Vous n'avez plus qu'à suivre votre envoi.</p>
+
+
+    <div class="hero-cta">
+      <a class="btn btn-wa" id="waHero" href="#" target="_blank" rel="noopener">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.24h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.83 14.24c-.25.7-1.44 1.34-2 1.42-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.97-1.28-4.9-4.27-5.05-4.47-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.59-.37.78-.37h.56c.18 0 .42-.07.66.5.25.6.84 2.05.91 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.44.51c-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.5.22.57.35.07.12.07.72-.18 1.42Z"/>
+        </svg>
+        <span data-fr="Demander un pick up" data-en="Book a pickup">Demander un pick up</span>
+      </a>
+      <a class="btn btn-ghost" href="#tarifs" data-fr="Voir les tarifs" data-en="See pricing">Voir les tarifs</a>
+    </div>
+
+    <div class="track-card" id="suivi">
+      <h3 data-fr="Suivre un colis" data-en="Track a shipment">Suivre un colis</h3>
+      <form class="track-form" id="trackForm" style="margin-top:12px">
+        <input id="trackInput" name="tracking" autocomplete="off" spellcheck="false"
+               placeholder="SEA-AUG-2026-000258"
+               aria-label="Numéro de suivi" />
+        <button type="submit" data-fr="Suivre" data-en="Track">Suivre</button>
+      </form>
+      <p class="track-hint" data-fr="Votre numéro figure sur votre reçu. Il commence par SEA- ou AIR-"
+         data-en="Your number is on the receipt, in the form SEA-… or AIR-…">Votre numéro figure sur votre reçu. Il commence par SEA- ou AIR-</p>
+      <div id="trackOut" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+
+<section id="calendrier">
+  <div class="wrap">
+    <span class="eyebrow" data-fr="Calendrier" data-en="Schedule">Calendrier</span>
+    <h2 style="margin-top:10px" data-fr="Prochains départs" data-en="Upcoming departures">Prochains départs</h2>
+    <p class="lede" style="margin-top:14px"
+       data-fr="Déposez vos colis ou demandez un pick up avant la date de clôture : votre envoi partira avec le départ suivant."
+       data-en="Drop off or book a pickup before the cut-off date to make the next departure.">Déposez vos colis ou demandez un pick up avant la date de clôture : votre envoi partira avec le départ suivant.</p>
+
+    <div class="sched">
+      <div class="sched-col">
+        <div class="sched-head air">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 15.5 3.5 20l3-5.5-3-5.5L21 13c.8.4.8 2.1 0 2.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <h3 data-fr="Air Express" data-en="Air Express">Air Express</h3>
+          <span data-fr="3–6 jours" data-en="3–6 days">3–6 jours</span>
+        </div>
+        <ul class="sched-list" id="schedAir"></ul>
+        <p class="sched-foot" data-fr="Facturation au poids réel, à partir d'1 kg. Tarif négociable au-delà de 23 kg."
+           data-en="Billed by actual weight, 1 kg minimum. Negotiable from 23 kg.">Facturation au poids réel, à partir d'1 kg. Tarif négociable au-delà de 23 kg.</p>
+      </div>
+
+      <div class="sched-col">
+        <div class="sched-head sea">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 18h18l-1.6-4.2a1.6 1.6 0 0 0-1.5-1.05H6.1a1.6 1.6 0 0 0-1.5 1.05L3 18Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 12.7V7h10v5.7M12 7V4" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <h3 data-fr="Maritime" data-en="Sea shipping">Maritime</h3>
+          <span data-fr="45–60 jours" data-en="45–60 days">45–60 jours</span>
+        </div>
+        <ul class="sched-list" id="schedSea"></ul>
+        <p class="sched-foot" data-fr="Fûts, grands cartons U-Haul, meubles, matériel électronique et véhicules."
+           data-en="Barrels, large U-Haul boxes, cartons, furniture, electronics and vehicles.">Fûts, grands cartons U-Haul, meubles, matériel électronique et véhicules.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <span class="eyebrow" data-fr="Nos services" data-en="What we ship">Nos services</span>
+    <h2 style="margin-top:10px" data-fr="Nos solutions d'expédition" data-en="Three ways to send">Nos solutions d'expédition</h2>
+    <p class="lede" style="margin-top:14px"
+       data-fr="Deux cartons ou une voiture, le parcours reste le même : nous venons chercher, nous emballons, nous dédouanons, et votre destinataire réceptionne."
+       data-en="Whether you send two cartons or a car, the journey is the same: we pick up, we pack, we clear customs, your recipient receives.">Deux cartons ou une voiture, le parcours reste le même : nous venons chercher, nous emballons, nous dédouanons, et votre destinataire réceptionne.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15.5 3.5 20l3-5.5-3-5.5L21 13c.8.4.8 2.1 0 2.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3 data-fr="Fret aérien" data-en="Air freight">Fret aérien</h3>
+        <p style="color:var(--muted)" data-fr="En express ou en économique, facturé au kilo. Livraison en 3 à 6 jours." data-en="Express or economy, billed by the kilo. 3 to 6 days.">En express ou en économique, facturé au kilo. Livraison en 3 à 6 jours.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 18h18l-1.6-4.2a1.6 1.6 0 0 0-1.5-1.05H6.1a1.6 1.6 0 0 0-1.5 1.05L3 18Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 12.7V7h10v5.7M12 7V4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3 data-fr="Fret maritime" data-en="Ocean freight">Fret maritime</h3>
+        <p style="color:var(--muted)" data-fr="Conteneur complet ou groupage (FCL / LCL). Acheminement en 45 à 60 jours." data-en="Full container or consolidated (FCL / LCL). 45 to 60 days.">Conteneur complet ou groupage (FCL / LCL). Acheminement en 45 à 60 jours.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 15.5h18M5.5 15.5 7 9.6A1.7 1.7 0 0 1 8.65 8.3h6.7A1.7 1.7 0 0 1 17 9.6l1.5 5.9M4 16v2.2M20 16v2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-fr="Véhicules" data-en="Vehicle shipping">Véhicules</h3>
+        <p style="color:var(--muted)" data-fr="Voitures, pick-ups et engins, arrimés et suivis jusqu'au port de destination." data-en="Cars, pickups and machinery, safe all the way to the port.">Voitures, pick-ups et engins, arrimés et suivis jusqu'au port de destination.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 20V10.5L12 4l8 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 21v-6h5v6" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <h3 data-fr="Porte-à-porte" data-en="Door-to-door">Porte-à-porte</h3>
+        <p style="color:var(--muted)" data-fr="Nous venons chez vous et livrons à l'adresse de votre destinataire au Cameroun." data-en="Pickup at your door, delivery to your recipient's door in Cameroon.">Nous venons chez vous et livrons à l'adresse de votre destinataire au Cameroun.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 2.8v5.6c0 4.2-2.9 7.6-7 8.6-4.1-1-7-4.4-7-8.6V5.8L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15.5 10" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-fr="Dédouanement" data-en="Customs clearance">Dédouanement</h3>
+        <p style="color:var(--muted)" data-fr="Nous prenons en charge les formalités douanières, en conformité et sans délai." data-en="Formalities handled, compliant and without delay.">Nous prenons en charge les formalités douanières, en conformité et sans délai.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3.5 8.2 12 4l8.5 4.2v7.6L12 20l-8.5-4.2V8.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M3.5 8.2 12 12.4l8.5-4.2M12 12.4V20" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3 data-fr="Groupage" data-en="Cargo consolidation">Groupage</h3>
+        <p style="color:var(--muted)" data-fr="Nous regroupons vos envois afin de réduire votre coût au kilo." data-en="Your shipments grouped together to bring the cost per kilo down.">Nous regroupons vos envois afin de réduire votre coût au kilo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="tarifs">
+  <div class="wrap">
+    <span class="eyebrow" data-fr="Tarifs" data-en="Pricing">Tarifs</span>
+    <h2 style="margin-top:10px" data-fr="Nos prix, sans détour" data-en="Our prices, plainly">Nos prix, sans détour</h2>
+    <p class="lede" style="margin-top:14px"
+       data-fr="Les tarifs ci-dessous sont ceux que nous appliquons. Aucuns frais de dossier, aucune surprise à l'arrivée."
+       data-en="The rates below are the ones we charge. No handling fee, no surprise on arrival.">Les tarifs ci-dessous sont ceux que nous appliquons. Aucuns frais de dossier, aucune surprise à l'arrivée.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-fr="Envoi" data-en="Shipment">Envoi</th>
+            <th data-fr="Mode" data-en="Mode">Mode</th>
+            <th data-fr="Prix" data-en="Price">Prix</th>
+            <th data-fr="Délai" data-en="Transit">Délai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong data-fr="Fût" data-en="Barrel">Fût</strong><br><small style="color:var(--muted)">55 gallons</small></td>
+            <td data-fr="Maritime" data-en="Sea">Maritime</td>
+            <td class="price tnum">300 $
+              <small data-fr="275 $ l'unité dès 2 fûts" data-en="$275 each from 2 barrels">275 $ l'unité dès 2 fûts</small></td>
+            <td class="tnum" data-fr="45–60 jours" data-en="45–60 days">45–60 jours</td>
+          </tr>
+          <tr>
+            <td><strong data-fr="Grand Carton U-Haul" data-en="Large U-Haul Box">Grand Carton U-Haul</strong><br><small style="color:var(--muted)">24″ × 24″ × 48″ · 16 cu ft</small></td>
+            <td data-fr="Maritime" data-en="Sea">Maritime</td>
+            <td class="price tnum" data-fr="jusqu'à 400 $" data-en="up to $400">jusqu'à 400 $
+              <small data-fr="350 $ l'unité dès 2 cartons" data-en="$350 each from 2 boxes">350 $ l'unité dès 2 cartons</small></td>
+            <td class="tnum" data-fr="45–60 jours" data-en="45–60 days">45–60 jours</td>
+          </tr>
+          <tr>
+            <td><strong data-fr="Colis au kilo" data-en="Parcel by weight">Colis au kilo</strong></td>
+            <td data-fr="Aérien" data-en="Air">Aérien</td>
+            <td class="price tnum">20 $ / kg
+              <small data-fr="minimum 1 kg · négociable dès 23 kg" data-en="1 kg minimum · negotiable from 23 kg">minimum 1 kg · négociable dès 23 kg</small></td>
+            <td class="tnum" data-fr="3–6 jours" data-en="3–6 days">3–6 jours</td>
+          </tr>
+          <tr>
+            <td><strong data-fr="Véhicule" data-en="Vehicle">Véhicule</strong></td>
+            <td data-fr="Maritime" data-en="Sea">Maritime</td>
+            <td class="price tnum" data-fr="dès 1 500 $" data-en="from $1,500">dès 1 500 $
+              <small data-fr="cotation selon modèle et port" data-en="quoted by model and port">cotation selon modèle et port</small></td>
+            <td data-fr="Sur devis" data-en="On quote">Sur devis</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notes">
+      <p class="note"><b data-fr="Dédouanement inclus." data-en="Customs included.">Dédouanement inclus.</b>
+        <span data-fr="Compris dans l'ensemble des tarifs ci-dessus. Seuls les véhicules font l'objet d'un dédouanement séparé."
+              data-en="Included in every rate above, except vehicles, which clear customs separately.">Compris dans l'ensemble des tarifs ci-dessus. Seuls les véhicules font l'objet d'un dédouanement séparé.</span></p>
+      <p class="note"><b data-fr="Pick up à domicile." data-en="Pickup at your door.">Pick up à domicile.</b>
+        <span data-fr="Nous venons les chercher dans les 10 États que nous desservons. Vous pouvez également les déposer à Burtonsville."
+              data-en="We collect in each of the 10 states we serve. Or drop them off in Burtonsville.">Nous venons les chercher dans les 10 États que nous desservons. Vous pouvez également les déposer à Burtonsville.</span></p>
+      <p class="note"><b data-fr="Ou déposez-les." data-en="Or drop them off.">Ou déposez-les.</b>
+        <span data-fr="Notre point de dépôt se situe à Burtonsville, Maryland."
+              data-en="Our drop-off point is in Burtonsville, Maryland.">Notre point de dépôt se situe à Burtonsville, Maryland.</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</span>
+    <h2 style="margin-top:10px" data-fr="Quatre étapes, c'est tout" data-en="Four steps, that's all">Quatre étapes, c'est tout</h2>
+    <div class="steps">
+      <div class="step">
+        <h3 data-fr="Vous nous écrivez" data-en="You message us">Vous nous écrivez</h3>
+        <p data-fr="Sur WhatsApp, à toute heure. Indiquez-nous ce que vous expédiez, depuis quelle ville et pour quel destinataire : nous vous envoyons un devis."
+           data-en="On WhatsApp, at any hour. Tell us what you are sending, from where and to whom — we send you a quotation.">Sur WhatsApp, à toute heure. Indiquez-nous ce que vous expédiez, depuis quelle ville et pour quel destinataire : nous vous envoyons un devis.</p>
+      </div>
+      <div class="step">
+        <h3 data-fr="Nous venons chercher" data-en="We pick up">Nous venons chercher</h3>
+        <p data-fr="Partout sur la côte Est, à la date qui vous convient. Ou déposez vos colis à Burtonsville."
+           data-en="Anywhere on the East Coast, on the date that suits you. Or drop off in Burtonsville.">Partout sur la côte Est, à la date qui vous convient. Ou déposez vos colis à Burtonsville.</p>
+      </div>
+      <div class="step">
+        <h3 data-fr="Le colis voyage" data-en="It travels">Le colis voyage</h3>
+        <p data-fr="Un numéro de suivi vous est remis dès le départ, et chaque étape est consultable sur cette page."
+           data-en="You receive a tracking number from departure, and you see every step on this page.">Un numéro de suivi vous est remis dès le départ, et chaque étape est consultable sur cette page.</p>
+      </div>
+      <div class="step">
+        <h3 data-fr="Livraison au Cameroun" data-en="Delivered in Cameroon">Livraison au Cameroun</h3>
+        <p data-fr="Une fois le dédouanement effectué, votre destinataire est prévenu et vient retirer son colis."
+           data-en="Customs cleared, your recipient is notified and collects their goods.">Une fois le dédouanement effectué, votre destinataire est prévenu et vient retirer son colis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" data-fr="Contact" data-en="Contact">Contact</span>
+    <h2 style="margin-top:10px" data-fr="Votre envoi" data-en="Your shipment">Votre envoi</h2>
+    <p class="lede" style="margin-top:14px"
+       data-fr="WhatsApp reste le plus rapide : nous répondons en français comme en anglais. Vous pouvez également nous écrire depuis ce formulaire."
+       data-en="WhatsApp is fastest — we answer in French and English. The form works too if you prefer writing.">WhatsApp reste le plus rapide : nous répondons en français comme en anglais. Vous pouvez également nous écrire depuis ce formulaire.</p>
+
+    <div class="contact-grid">
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="cf-name" data-fr="Votre nom" data-en="Your name">Votre nom</label>
+          <input id="cf-name" name="name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="cf-contact" data-fr="Téléphone ou e-mail" data-en="Phone or email">Téléphone ou e-mail</label>
+          <input id="cf-contact" name="contact" required autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="cf-mode" data-fr="Type d'envoi" data-en="Shipment type">Type d'envoi</label>
+          <select id="cf-mode" name="mode">
+            <option value="sea" data-fr="Maritime — fûts, grands cartons" data-en="Sea — barrels, large cartons">Maritime — fûts, grands cartons</option>
+            <option value="air" data-fr="Aérien — au kilo" data-en="Air — by weight">Aérien — au kilo</option>
+            <option value="vehicle" data-fr="Véhicule" data-en="Vehicle">Véhicule</option>
+            <option value="other" data-fr="Autre / à préciser" data-en="Other / not sure">Autre / à préciser</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-msg" data-fr="Votre message" data-en="Your message">Votre message</label>
+          <textarea id="cf-msg" name="message" rows="4" required
+            data-ph-fr="Ce que vous envoyez, depuis quelle ville, et vers quelle ville au Cameroun."
+            data-ph-en="What you are sending, from which city, and to which city in Cameroon."></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="cf-website">Website</label>
+          <input id="cf-website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="btn btn-wa" type="submit" id="cfSubmit"
+                data-fr="Envoyer" data-en="Send">Envoyer</button>
+        <p class="form-msg" id="cfMsg"></p>
+      </form>
+
+      <div class="ways">
+        <div class="way">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.24c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Z"/></svg>
+          </div>
+          <div>
+            <span data-fr="WhatsApp &amp; téléphone" data-en="WhatsApp &amp; phone">WhatsApp &amp; téléphone</span>
+            <strong><a id="waPhone" href="#" target="_blank" rel="noopener">+1 202 945 0204</a></strong>
+          </div>
+        </div>
+        <div class="way">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+          </div>
+          <div>
+            <span data-fr="États-Unis — dépôt &amp; pick up" data-en="United States — drop-off &amp; pickup">États-Unis — dépôt &amp; pick up</span>
+            <strong>15421 Old Columbia Pike<br>Burtonsville, MD 20866</strong>
+          </div>
+        </div>
+        <div class="way">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+          </div>
+          <div>
+            <span data-fr="Cameroun — villes desservies" data-en="Cameroon — cities served">Cameroun — villes desservies</span>
+            <strong>Douala · Yaoundé · Bafoussam · Buea · Limbé</strong>
+            <span style="font-weight:400;color:#c2ddca;font-size:13.5px;line-height:1.5;display:block;margin-top:6px">Douala — Akwa, Galerie Wilson<br>
+              <span data-fr="première boutique à gauche" data-en="first shop on the left">première boutique à gauche</span><br>
+              Douala — Logpom</span>
+          </div>
+        </div>
+        <div class="way">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5.3l3.2 1.9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <span data-fr="Zone de pick up" data-en="Pickup area">Zone de pick up</span>
+            <strong data-fr="10 États de la côte Est" data-en="10 East Coast states">10 États de la côte Est</strong>
+            <span style="font-weight:400;color:#c2ddca;font-size:13.5px;line-height:1.5">Maryland · Virginia · Washington DC · West Virginia · Pennsylvania · Delaware · New Jersey · New York · Connecticut · Massachusetts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span style="letter-spacing:.12em;font-weight:600;color:#f7c331" data-fr="RAPIDE · FIABLE · ABORDABLE" data-en="FAST · RELIABLE · AFFORDABLE">RAPIDE · FIABLE · ABORDABLE</span>
+    <span>© <span id="yr">2026</span> TehCargo — <span data-fr="Expédition côte Est → Cameroun" data-en="East Coast → Cameroon shipping">Expédition côte Est → Cameroun</span></span>
+    <span><a href="/privacy" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></span>
+  </div>
+</footer>
+
+<div class="bk-back" id="bkBack" role="dialog" aria-modal="true" aria-labelledby="bkTitle">
+  <div class="bk">
+    <div class="bk-head">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 8.2 12 4l8.5 4.2v7.6L12 20l-8.5-4.2V8.2Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M3.5 8.2 12 12.4l8.5-4.2M12 12.4V20" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <h3 id="bkTitle" data-fr="Demander un pick up" data-en="Book a pickup">Demander un pick up</h3>
+      <button class="bk-close" id="bkClose" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="bk-body">
+      <div class="bk-step">
+        <span class="bk-lab" data-fr="1 · Que faut-il venir chercher ?" data-en="1 · What should we come and collect?">1 · Que faut-il venir chercher ?</span>
+        <div class="bk-items" id="bkItems"></div>
+        <div class="bk-f" id="bkCustomWrap" style="margin-top:12px; display:none">
+          <label for="bkCustom" data-fr="Précisez ce que vous expédiez" data-en="Describe what you are sending">Précisez ce que vous expédiez</label>
+          <textarea id="bkCustom" rows="2"
+            data-ph-fr="Ex. : un canapé 3 places et deux cartons de vêtements"
+            data-ph-en="e.g. a 3-seat sofa and two boxes of clothes"></textarea>
+        </div>
+      </div>
+
+      <div class="bk-step">
+        <span class="bk-lab" data-fr="2 · Photos (facultatif)" data-en="2 · Photos (optional)">2 · Photos (facultatif)</span>
+        <p style="font-size:13.5px;color:var(--muted);margin-top:-4px"
+           data-fr="Une photo de vos colis nous permet d'adapter le véhicule et de confirmer le tarif."
+           data-en="A photo of your parcels helps us prepare the vehicle and confirm the price.">Une photo de vos colis nous permet d'adapter le véhicule et de confirmer le tarif.</p>
+        <div class="bk-photos" id="bkPhotos">
+          <button type="button" class="bk-add" id="bkAddPhoto" aria-label="Ajouter une photo">＋</button>
+        </div>
+        <input type="file" id="bkFile" accept="image/*" multiple hidden />
+      </div>
+
+      <div class="bk-step">
+        <span class="bk-lab" data-fr="3 · À quelle adresse ?" data-en="3 · Where do we come?">3 · À quelle adresse ?</span>
+        <div class="bk-loc">
+          <button type="button" id="bkGeoBtn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span data-fr="Utiliser ma position" data-en="Use my location">Utiliser ma position</span>
+          </button>
+        </div>
+        <p class="bk-geo" id="bkGeo"></p>
+        <div class="bk-f" style="margin-top:10px">
+          <label for="bkAddr" data-fr="Adresse complète" data-en="Full address">Adresse complète</label>
+          <textarea id="bkAddr" rows="2"
+            data-ph-fr="Numéro, rue, ville, État, code postal"
+            data-ph-en="Number, street, city, state, ZIP"></textarea>
+        </div>
+      </div>
+
+      <div class="bk-step">
+        <span class="bk-lab" data-fr="4 · Vos coordonnées" data-en="4 · Reaching you">4 · Vos coordonnées</span>
+        <div class="bk-row">
+          <div class="bk-f">
+            <label for="bkName" data-fr="Nom complet" data-en="Full name">Nom complet</label>
+            <input id="bkName" autocomplete="name" />
+          </div>
+          <div class="bk-f">
+            <label for="bkPhone" data-fr="Téléphone" data-en="Phone">Téléphone</label>
+            <input id="bkPhone" type="tel" autocomplete="tel" placeholder="+1 …" />
+          </div>
+        </div>
+        <div class="bk-row" style="margin-top:12px">
+          <div class="bk-f">
+            <label for="bkDate" data-fr="Date souhaitée" data-en="Preferred date">Date souhaitée</label>
+            <input id="bkDate" type="date" />
+          </div>
+          <div class="bk-f">
+            <label for="bkNotes" data-fr="Précisions (facultatif)" data-en="Anything else (optional)">Précisions (facultatif)</label>
+            <input id="bkNotes" />
+          </div>
+        </div>
+      </div>
+      <input type="text" id="bkHp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    </div>
+
+    <div class="bk-foot">
+      <p class="bk-msg" id="bkMsg"></p>
+      <button class="bk-send" id="bkSend">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.24c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Z"/></svg>
+        <span data-fr="Envoyer ma demande" data-en="Send my request">Envoyer ma demande</span>
+      </button>
+      <p class="bk-note" data-fr="Votre demande est enregistrée, puis WhatsApp s'ouvre avec le récapitulatif prêt à être envoyé."
+         data-en="Your request is saved, then WhatsApp opens with the summary ready to send.">Votre demande est enregistrée, puis WhatsApp s'ouvre avec le récapitulatif prêt à être envoyé.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var WA_NUMBER = "12029450204";
+  var API = "https://api2.tehtek.com/api/v1";
+
+  /* ══ CALENDRIER DES DÉPARTS — modifier uniquement ce bloc ══════════════
+     date : AAAA-MM-JJ  ·  cutoff : date limite de dépôt (optionnelle)
+     Les départs passés disparaissent tout seuls ; le prochain est mis en avant. */
+  var SCHEDULE = {
+    sea: [
+      { date:"2026-09-15", fr:"Chargement du conteneur", en:"Container loading" }
+    ],
+    air: [
+      /* Ajoutez ici vos départs aériens, par ex. :
+         { date:"2026-09-12", fr:"Départ Air Express", en:"Air Express departure" }, */
+    ]
+  };
+
+  /* ── Language ─────────────────────────────────────── */
+  var T = {
+    searching:{fr:"Recherche…", en:"Searching…"},
+    notfound:{fr:"Ce numéro est introuvable. Vérifiez votre saisie, ou contactez-nous sur WhatsApp.",
+              en:"Number not found. Check the spelling, or message us on WhatsApp."},
+    offline:{fr:"Le suivi est momentanément indisponible. Merci de réessayer dans un instant.",
+             en:"Tracking is briefly unavailable. Please try again shortly."},
+    empty:{fr:"Veuillez saisir votre numéro de suivi.", en:"Enter your tracking number."},
+    noevent:{fr:"Aucun événement enregistré pour cet envoi à ce jour.", en:"No events recorded yet."},
+    from:{fr:"Expéditeur", en:"Sender"}, to:{fr:"Destinataire", en:"Recipient"},
+    mode:{fr:"Mode", en:"Mode"}, weight:{fr:"Poids", en:"Weight"},
+    sending:{fr:"Envoi…", en:"Sending…"},
+    sent:{fr:"Votre message est bien reçu. Nous vous répondons dans les meilleurs délais.", en:"Message received. We'll get back to you shortly."},
+    failed:{fr:"L'envoi a échoué. Contactez-nous sur WhatsApp, la réponse est immédiate.",
+            en:"Sending failed. Message us on WhatsApp instead — it's instant."},
+    required:{fr:"Merci de renseigner les champs obligatoires.", en:"Please fill in the required fields."},
+    send:{fr:"Envoyer", en:"Send"}
+  };
+  var lang = "fr";
+  try { lang = localStorage.getItem("tc_lang") || (navigator.language || "fr").slice(0,2); } catch (e) {}
+  if (lang !== "en") lang = "fr";
+
+  function t(k){ return (T[k] && T[k][lang]) || ""; }
+
+  function applyLang() {
+    document.documentElement.lang = lang;
+    var nodes = document.querySelectorAll("[data-fr][data-en]");
+    for (var i = 0; i < nodes.length; i++) {
+      var v = nodes[i].getAttribute("data-" + lang);
+      if (v !== null) nodes[i].innerHTML = v;
+    }
+    var ph = document.querySelectorAll("[data-ph-fr][data-ph-en]");
+    for (var j = 0; j < ph.length; j++) {
+      ph[j].placeholder = ph[j].getAttribute("data-ph-" + lang) || "";
+    }
+    var btns = document.querySelectorAll(".langs button");
+    for (var k = 0; k < btns.length; k++) {
+      btns[k].setAttribute("aria-pressed", btns[k].dataset.lang === lang ? "true" : "false");
+    }
+    setWaLinks();
+    bindBookingButtons();
+    if (typeof renderSchedule === "function") renderSchedule();
+  }
+
+  function bindBookingButtons() {
+    var hero = document.getElementById("waHero");
+    if (hero && !hero.dataset.bound) {
+      hero.dataset.bound = "1";
+      hero.addEventListener("click", function (e) { e.preventDefault(); bkOpen(); });
+    }
+  }
+
+  function setWaLinks() {
+    var msg = lang === "en"
+      ? "Hello TehCargo, I would like to book a pickup."
+      : "Bonjour TehCargo, je souhaite réserver un pick up.";
+    var href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+    ["waTop", "waHero", "waPhone"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.href = href;
+    });
+  }
+
+  document.querySelector(".langs").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-lang]");
+    if (!b) return;
+    lang = b.dataset.lang;
+    try { localStorage.setItem("tc_lang", lang); } catch (err) {}
+    applyLang();
+  });
+
+  /* ── Tracking ─────────────────────────────────────── */
+  var out = document.getElementById("trackOut");
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+  function note(cls, text) {
+    out.innerHTML = '<p class="status-pill ' + cls + '">' + esc(text) + "</p>";
+  }
+  function statusClass(s) {
+    s = (s || "").toLowerCase();
+    if (s.indexOf("deliver") > -1 || s.indexOf("livr") > -1) return "s-ok";
+    if (s.indexOf("transit") > -1 || s.indexOf("ship") > -1) return "s-go";
+    return "s-wait";
+  }
+
+  document.getElementById("trackForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var n = document.getElementById("trackInput").value.trim();
+    if (!n) { note("s-err", t("empty")); return; }
+    note("s-go", t("searching"));
+
+    fetch(API + "/tracking/" + encodeURIComponent(n))
+      .then(function (r) {
+        if (r.status === 404) { note("s-err", t("notfound")); return null; }
+        if (!r.ok) { note("s-err", t("offline")); return null; }
+        return r.json();
+      })
+      .then(function (d) {
+        if (!d) return;
+        var rows = [
+          [t("from"), [d.sender_name, d.sender_country].filter(Boolean).join(" · ")],
+          [t("to"),   [d.receiver_name, d.receiver_country].filter(Boolean).join(" · ")],
+          [t("mode"), d.shipment_type],
+          [t("weight"), d.weight_kg ? d.weight_kg + " kg" : ""]
+        ].filter(function (r) { return r[1]; });
+
+        var html =
+          '<p class="status-pill ' + statusClass(d.status) + '">' + esc(d.status || "—") + "</p>" +
+          '<div class="track-grid">' +
+            rows.map(function (r) {
+              return "<div><span>" + esc(r[0]) + "</span><strong>" + esc(r[1]) + "</strong></div>";
+            }).join("") +
+          "</div>";
+
+        var ev = (d.events || []).slice().reverse();
+        html += ev.length
+          ? '<ul class="events">' + ev.map(function (e2) {
+              var when = e2.timestamp ? new Date(e2.timestamp) : null;
+              var stamp = when && !isNaN(when) ? when.toLocaleString(lang === "en" ? "en-US" : "fr-FR") : "";
+              return '<li><span class="dot"></span><div>' +
+                '<div class="ev-t">' + esc(stamp) + (e2.location ? " · " + esc(e2.location) : "") + "</div>" +
+                "<div>" + esc(e2.description || e2.event_type || "") + "</div></div></li>";
+            }).join("") + "</ul>"
+          : "<p style='color:var(--muted);font-size:14.5px'>" + esc(t("noevent")) + "</p>";
+
+        out.innerHTML = html;
+      })
+      .catch(function () { note("s-err", t("offline")); });
+  });
+
+  /* ── Contact form ─────────────────────────────────── */
+  var form = document.getElementById("contactForm");
+  var msgBox = document.getElementById("cfMsg");
+  var submitBtn = document.getElementById("cfSubmit");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    msgBox.className = "form-msg";
+
+    var body = {
+      name:    form.name.value.trim(),
+      contact: form.contact.value.trim(),
+      mode:    form.mode.value,
+      message: form.message.value.trim(),
+      website: form.website.value,           // honeypot: real people leave it empty
+      lang:    lang
+    };
+    if (!body.name || !body.contact || !body.message) {
+      msgBox.className = "form-msg err"; msgBox.textContent = t("required"); return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = t("sending");
+
+    fetch(API + "/cargo/web-enquiry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error("http " + r.status);
+        msgBox.className = "form-msg ok";
+        msgBox.textContent = t("sent");
+        form.reset();
+      })
+      .catch(function () {
+        msgBox.className = "form-msg err";
+        msgBox.textContent = t("failed");
+      })
+      .then(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = t("send");
+      });
+  });
+
+  /* ── Rendu du calendrier ──────────────────────────── */
+  var MONTHS = {
+    fr:["janv","févr","mars","avr","mai","juin","juil","août","sept","oct","nov","déc"],
+    en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+  };
+  function renderSchedule() {
+    var today = new Date(); today.setHours(0,0,0,0);
+    [["schedAir","air"],["schedSea","sea"]].forEach(function (pair) {
+      var ul = document.getElementById(pair[0]);
+      if (!ul) return;
+      var rows = (SCHEDULE[pair[1]] || [])
+        .filter(function (r) { return new Date(r.date + "T00:00:00") >= today; })
+        .sort(function (a, b) { return a.date < b.date ? -1 : 1; })
+        .slice(0, 5);
+
+      if (!rows.length) {
+        ul.innerHTML = '<li style="color:var(--muted);font-size:14.5px">' +
+          (lang === "en" ? "Next departure on request — message us on WhatsApp."
+                         : "Prochain départ sur demande — écrivez-nous sur WhatsApp.") + "</li>";
+        return;
+      }
+      ul.innerHTML = rows.map(function (r, i) {
+        var d = new Date(r.date + "T00:00:00");
+        return '<li><div class="sched-date"><b>' + d.getDate() + "</b><i>" +
+               MONTHS[lang][d.getMonth()] + "</i></div>" +
+               '<div class="sched-what"><strong>' + esc(r[lang] || r.fr) + "</strong>" +
+               '<span>' + d.toLocaleDateString(lang === "en" ? "en-US" : "fr-FR",
+                 { weekday:"long", day:"numeric", month:"long", year:"numeric" }) + "</span></div>" +
+               (i === 0 ? '<span class="sched-next">' +
+                 (lang === "en" ? "Next" : "Prochain") + "</span>" : "") + "</li>";
+      }).join("");
+    });
+  }
+
+
+  /* ══ Réservation de pick up ═══════════════════════════ */
+  var ITEMS = [
+    { key:"barrel", img:"/assets/item-barrel.png",
+      fr:"Fût 55 gallons",  en:"55-gallon barrel",
+      nfr:"300 $ · 275 $ dès 2", nen:"$300 · $275 from 2" },
+    { key:"uhaul",  img:"/assets/item-uhaul.png",
+      fr:"Grand Carton U-Haul", en:"Large U-Haul Box",
+      nfr:"400 $ · 350 $ dès 2", nen:"$400 · $350 from 2" },
+    { key:"custom", img:null,
+      fr:"Autre — à préciser", en:"Other — describe it",
+      nfr:"Cartons, meubles, véhicule…", nen:"Cartons, furniture, vehicle…" }
+  ];
+  var BK = { qty:{}, photos:[], lat:null, lng:null, busy:false };
+
+  var bkBack = document.getElementById("bkBack");
+  var bkMsg  = document.getElementById("bkMsg");
+
+  function bkT(fr, en) { return lang === "en" ? en : fr; }
+
+  function bkRenderItems() {
+    var box = document.getElementById("bkItems");
+    box.innerHTML = ITEMS.map(function (it) {
+      var n = BK.qty[it.key] || 0;
+      var pic = it.img
+        ? '<img src="' + it.img + '" alt="">'
+        : '<svg width="60" height="60" viewBox="0 0 24 24" fill="none">' +
+          '<path d="M4 8.5 12 5l8 3.5v7L12 19l-8-3.5v-7Z" stroke="#5d6f62" stroke-width="1.4" stroke-linejoin="round"/>' +
+          '<path d="M4 8.5 12 12l8-3.5M12 12v7" stroke="#5d6f62" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+      return '<div class="bk-item' + (n ? " on" : "") + '" data-k="' + it.key + '">' +
+             '<div class="ph">' + pic + "</div>" +
+             "<b>" + esc(bkT(it.fr, it.en)) + "</b>" +
+             "<small>" + esc(bkT(it.nfr, it.nen)) + "</small>" +
+             '<div class="qty"><button type="button" data-d="-1" aria-label="−">−</button>' +
+             "<span>" + n + '</span><button type="button" data-d="1" aria-label="+">+</button></div></div>';
+    }).join("");
+    document.getElementById("bkCustomWrap").style.display =
+      (BK.qty.custom || 0) > 0 ? "flex" : "none";
+  }
+
+  document.getElementById("bkItems").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-d]");
+    if (!b) return;
+    var k = b.closest(".bk-item").dataset.k;
+    BK.qty[k] = Math.max(0, Math.min(99, (BK.qty[k] || 0) + Number(b.dataset.d)));
+    bkRenderItems();
+  });
+
+  /* Photos — envoyées une par une, la vignette apparaît dès la réponse. */
+  document.getElementById("bkAddPhoto").addEventListener("click", function () {
+    document.getElementById("bkFile").click();
+  });
+  document.getElementById("bkFile").addEventListener("change", function (e) {
+    var files = Array.prototype.slice.call(e.target.files || []).slice(0, 5 - BK.photos.length);
+    e.target.value = "";
+    files.forEach(function (f) {
+      var fd = new FormData(); fd.append("file", f);
+      bkNote("", "");
+      fetch(API + "/cargo/pickup-photo", { method:"POST", body:fd })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (d) { BK.photos.push(d.url); bkRenderPhotos(); })
+        .catch(function () {
+          bkNote("err", bkT("Une photo n'a pas pu être transmise. Vous pouvez poursuivre sans elle.",
+                            "A photo could not be uploaded. You can continue without it."));
+        });
+    });
+  });
+  function bkRenderPhotos() {
+    var box = document.getElementById("bkPhotos");
+    box.innerHTML = BK.photos.map(function (u, i) {
+      return '<div class="bk-thumb"><img src="' + esc(u) + '" alt="">' +
+             '<button type="button" data-i="' + i + '" aria-label="Retirer">✕</button></div>';
+    }).join("") +
+    (BK.photos.length < 5
+      ? '<button type="button" class="bk-add" id="bkAddPhoto" aria-label="Ajouter une photo">＋</button>' : "");
+    var add = document.getElementById("bkAddPhoto");
+    if (add) add.onclick = function () { document.getElementById("bkFile").click(); };
+    Array.prototype.forEach.call(box.querySelectorAll("button[data-i]"), function (b) {
+      b.onclick = function () { BK.photos.splice(Number(b.dataset.i), 1); bkRenderPhotos(); };
+    });
+  }
+
+  /* Position — coordonnées seules : elles suffisent au chauffeur via Google Maps. */
+  document.getElementById("bkGeoBtn").addEventListener("click", function () {
+    var btn = this, out = document.getElementById("bkGeo");
+    if (!navigator.geolocation) {
+      bkNote("err", bkT("Votre navigateur ne transmet pas la position. Merci de saisir l'adresse.",
+                        "Your browser cannot share location. Please type the address."));
+      return;
+    }
+    out.className = "bk-geo show";
+    out.textContent = bkT("Localisation en cours…", "Locating…");
+    navigator.geolocation.getCurrentPosition(function (p) {
+      BK.lat = +p.coords.latitude.toFixed(6);
+      BK.lng = +p.coords.longitude.toFixed(6);
+      btn.classList.add("on");
+      out.textContent = bkT("Position enregistrée : ", "Location captured: ") + BK.lat + ", " + BK.lng;
+    }, function () {
+      out.className = "bk-geo";
+      bkNote("err", bkT("Position refusée. Merci de saisir l'adresse complète.",
+                        "Location denied. Please type the full address."));
+    }, { enableHighAccuracy:true, timeout:10000 });
+  });
+
+  function bkNote(kind, text) {
+    bkMsg.className = "bk-msg" + (kind ? " " + kind : "");
+    bkMsg.textContent = text;
+  }
+  function bkOpen() { bkRenderItems(); bkRenderPhotos(); bkBack.classList.add("open");
+                      document.body.style.overflow = "hidden"; }
+  function bkClose() { bkBack.classList.remove("open"); document.body.style.overflow = ""; }
+  document.getElementById("bkClose").addEventListener("click", bkClose);
+  bkBack.addEventListener("click", function (e) { if (e.target === bkBack) bkClose(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && bkBack.classList.contains("open")) bkClose();
+  });
+
+  document.getElementById("bkSend").addEventListener("click", function () {
+    if (BK.busy) return;
+    var custom = document.getElementById("bkCustom").value.trim();
+    var items = ITEMS.filter(function (it) { return (BK.qty[it.key] || 0) > 0; })
+      .map(function (it) {
+        return { key: it.key, qty: BK.qty[it.key],
+                 label: it.key === "custom" && custom ? custom : bkT(it.fr, it.en) };
+      });
+    var name  = document.getElementById("bkName").value.trim();
+    var phone = document.getElementById("bkPhone").value.trim();
+    var addr  = document.getElementById("bkAddr").value.trim();
+
+    if (!items.length)
+      return bkNote("err", bkT("Veuillez sélectionner au moins un article.", "Pick at least one item."));
+    if ((BK.qty.custom || 0) > 0 && !custom)
+      return bkNote("err", bkT("Précisez ce que vous expédiez.", "Describe what you are sending."));
+    if (!name || !phone)
+      return bkNote("err", bkT("Votre nom et votre téléphone sont requis.",
+                               "We need your name and phone number."));
+    if (!addr && BK.lat === null)
+      return bkNote("err", bkT("Merci d'indiquer une adresse ou de partager votre position.",
+                               "Give an address or share your location."));
+
+    var payload = {
+      name:name, phone:phone, items:items, photos:BK.photos,
+      address: addr || null, latitude: BK.lat, longitude: BK.lng,
+      preferred_date: document.getElementById("bkDate").value || null,
+      notes: document.getElementById("bkNotes").value.trim() || null,
+      lang: lang, website: document.getElementById("bkHp").value
+    };
+
+    BK.busy = true;
+    var btn = this; btn.disabled = true;
+    bkNote("", bkT("Envoi…", "Sending…"));
+
+    fetch(API + "/cargo/pickup", {
+      method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(payload)
+    })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) {
+        bkNote("ok", bkT("Demande enregistrée. Ouverture de WhatsApp…",
+                         "Request saved. Opening WhatsApp…"));
+        var lines = [
+          bkT("Demande de pick up", "Pickup request") + (d.id ? " #" + d.id : ""),
+          name + " · " + phone,
+          items.map(function (i) { return i.qty + "× " + i.label; }).join(" · ")
+        ];
+        if (addr) lines.push(addr);
+        if (BK.lat !== null) lines.push("https://maps.google.com/?q=" + BK.lat + "," + BK.lng);
+        if (payload.preferred_date) lines.push(bkT("Date souhaitée : ", "Preferred date: ") + payload.preferred_date);
+        if (payload.notes) lines.push(payload.notes);
+        if (BK.photos.length) lines.push(BK.photos.join("\n"));
+        window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(lines.join("\n")), "_blank");
+        setTimeout(bkClose, 1200);
+      })
+      .catch(function () {
+        bkNote("err", bkT("L'envoi a échoué. Contactez-nous directement sur WhatsApp.",
+                          "Sending failed. Message us directly on WhatsApp."));
+      })
+      .then(function () { BK.busy = false; btn.disabled = false; });
+  });
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  applyLang();
+})();
+</script>
+</body>
+</html>

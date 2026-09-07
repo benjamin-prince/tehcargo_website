@@ -1,0 +1,4 @@
+# Rien à ignorer pour l'instant : le site est un fichier HTML et ses assets.
+# Placeholder pour les artefacts de build éventuels.
+*.log
+.DS_Store

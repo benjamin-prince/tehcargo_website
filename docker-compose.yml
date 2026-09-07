@@ -1,0 +1,12 @@
+services:
+  tehcargo-web:
+    build: .
+    image: boulaz2002/tehcargo-web:latest
+    container_name: tehcargo_web
+    restart: unless-stopped
+    networks: [default]
+
+networks:
+  default:
+    name: backend_internal
+    external: true
